@@ -102,14 +102,18 @@ namespace RestWithASPNETUdemy.Controllers
 
         private decimal ConvertToDecimal(string number)
         {
-            decimal.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out decimal convertedNumber);
-            return convertedNumber;
+            if (decimal.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out decimal convertedNumber))
+                return convertedNumber;
+            else
+                return 0;
         }
 
         private double ConvertToDouble(string number)
         {
-            double.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out double convertedNumber);
-            return convertedNumber;
+            if (double.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out double convertedNumber))
+                return convertedNumber;
+            else
+                return 0;
         }
 
         private bool IsNumeric(string number)
