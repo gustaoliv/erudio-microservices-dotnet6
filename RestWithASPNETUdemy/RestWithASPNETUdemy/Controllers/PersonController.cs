@@ -6,7 +6,7 @@ using RestWithASPNETUdemy.Services;
 namespace RestWithASPNETUdemy.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PersonController : ControllerBase
     {
         private readonly ILogger<CalculatorController> _logger;
@@ -51,7 +51,7 @@ namespace RestWithASPNETUdemy.Controllers
             return Ok(_personService.Update(person));
         }
 
-        [HttpGet("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
             _personService.Delete(id);
